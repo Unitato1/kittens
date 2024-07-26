@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
-    <%= yield %>
-  </body>
+  <% flash.each do |key, value|%>
+    <% if key == "errors"%>
+      <% value.each do |error| %>
+        <div>
+          <h2 style="color: red"><%=error%></h2>
+        </div>
+      <% end %>
+    </ul>
+  <% else %>
+    <h2 style="color: green"><%= value %></h2>
+  <% end %>
+<% end %>
+<body>
+  <%= yield %>
+</body>
 </html>

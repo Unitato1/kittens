@@ -1,0 +1,9 @@
+<h1> <%= kitten.name %></h1>
+<ul>
+  <li>Age: <%= kitten.age %></li>
+  <li>Cuteness: <%= kitten.cuteness %></li>
+  <li>Softness: <%= kitten.softness %></li>
+  <li><%= link_to "Edit kitten stats.", edit_kitten_path(kitten) %></li>
+  <li><%= link_to "#{ kitten.name }'s profile", kitten_path(kitten) %></li>
+  <li><%= link_to "Delete Cat :(", kitten, data: { turbo_method: :delete, confirm: "Are you sure?" }, disable_with: "Processing..." %></li>
+</ul>
